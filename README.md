@@ -21,15 +21,15 @@ A fully decentralized prediction market platform built on **Stellar Soroban** sm
 
 ## Mobile Responsive Screenshot
 
-| Home — Market List | Bet Modal |
-|---|---|
-| ![Stellar Prediction Market - mobile home screen with cricket market and YES/NO odds](screenshot/ss.PNG) | ![Stellar Prediction Market - mobile home screen with cricket market and YES/NO odds](screenshot/ss.PNG) |
+| Home — Market List |
+|---|
+| ![Stellar Prediction Market - mobile home screen with cricket market and YES/NO odds](screenshot/ss.PNG) |
 
 ---
 
 ## CI/CD Pipeline Screenshot
 
-![GitHub Actions CI/CD pipeline](docs/screenshots/cicd-pipeline.png)
+> Screenshot will appear here after pushing to GitHub and the Actions workflow runs green.
 
 ---
 
