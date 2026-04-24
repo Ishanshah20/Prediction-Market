@@ -3,35 +3,123 @@
 @tailwind utilities;
 
 @layer base {
+  * { box-sizing: border-box; }
+
   body {
-    @apply bg-slate-950 text-slate-100 antialiased;
+    @apply bg-[#050a14] text-slate-100 antialiased;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(14, 165, 233, 0.08) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 80% 80%, rgba(99, 102, 241, 0.05) 0%, transparent 50%);
+    background-attachment: fixed;
   }
+
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: #0f172a; }
+  ::-webkit-scrollbar-thumb { background: #1e3a5f; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #0ea5e9; }
 }
 
 @layer components {
+  /* ── Buttons ── */
   .btn-primary {
-    @apply bg-stellar-500 hover:bg-stellar-600 text-white font-semibold py-2 px-4 rounded-lg
-           transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed
-           focus:outline-none focus:ring-2 focus:ring-stellar-400 focus:ring-offset-2 focus:ring-offset-slate-900;
+    @apply relative bg-gradient-to-r from-stellar-500 to-stellar-600
+           hover:from-stellar-400 hover:to-stellar-500
+           text-white font-semibold py-2.5 px-5 rounded-xl
+           transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed
+           shadow-glow-sm hover:shadow-glow-md
+           focus:outline-none focus:ring-2 focus:ring-stellar-400/50;
   }
 
   .btn-yes {
-    @apply bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-2 px-6 rounded-lg
-           transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed
-           focus:outline-none focus:ring-2 focus:ring-emerald-400;
+    @apply bg-gradient-to-r from-emerald-500 to-emerald-600
+           hover:from-emerald-400 hover:to-emerald-500
+           text-white font-bold py-2.5 px-6 rounded-xl
+           transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed
+           shadow-[0_0_15px_rgba(16,185,129,0.3)] hover:shadow-[0_0_25px_rgba(16,185,129,0.5)]
+           focus:outline-none focus:ring-2 focus:ring-emerald-400/50;
   }
 
   .btn-no {
-    @apply bg-rose-500 hover:bg-rose-600 text-white font-semibold py-2 px-6 rounded-lg
-           transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed
-           focus:outline-none focus:ring-2 focus:ring-rose-400;
+    @apply bg-gradient-to-r from-rose-500 to-rose-600
+           hover:from-rose-400 hover:to-rose-500
+           text-white font-bold py-2.5 px-6 rounded-xl
+           transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed
+           shadow-[0_0_15px_rgba(244,63,94,0.3)] hover:shadow-[0_0_25px_rgba(244,63,94,0.5)]
+           focus:outline-none focus:ring-2 focus:ring-rose-400/50;
   }
 
+  .btn-oracle {
+    @apply bg-gradient-to-r from-oracle-500 to-oracle-600
+           hover:from-oracle-400 hover:to-oracle-500
+           text-white font-semibold py-2 px-4 rounded-xl
+           transition-all duration-200
+           shadow-oracle hover:shadow-[0_0_30px_rgba(139,92,246,0.6)]
+           focus:outline-none;
+  }
+
+  /* ── Cards ── */
   .card {
-    @apply bg-slate-900 border border-slate-800 rounded-xl p-6 shadow-xl;
+    @apply relative bg-[#0d1829]/80 border border-slate-800/60 rounded-2xl p-6
+           shadow-card backdrop-blur-sm
+           before:absolute before:inset-0 before:rounded-2xl
+           before:bg-gradient-to-br before:from-white/[0.03] before:to-transparent
+           before:pointer-events-none;
   }
 
-  .badge {
-    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  .card-glow {
+    @apply card border-stellar-800/40 shadow-glow-sm;
   }
+
+  .card-oracle {
+    @apply card border-oracle-600/30 shadow-oracle;
+  }
+
+  /* ── Glass panel ── */
+  .glass {
+    @apply bg-white/[0.03] backdrop-blur-md border border-white/[0.06] rounded-2xl;
+  }
+
+  /* ── Badge ── */
+  .badge {
+    @apply inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold;
+  }
+
+  /* ── Input ── */
+  .input-field {
+    @apply w-full bg-slate-900/60 border border-slate-700/60 rounded-xl px-4 py-3
+           text-white placeholder-slate-600
+           focus:outline-none focus:border-stellar-500/60 focus:ring-1 focus:ring-stellar-500/30
+           transition-colors;
+  }
+
+  /* ── Oracle badge ── */
+  .oracle-badge {
+    @apply inline-flex items-center gap-1.5 bg-oracle-900/30 border border-oracle-600/30
+           text-oracle-400 text-xs font-semibold px-3 py-1 rounded-full;
+  }
+
+  /* ── Shimmer loading ── */
+  .shimmer {
+    background: linear-gradient(90deg, transparent 0%, rgba(56,189,248,0.08) 50%, transparent 100%);
+    background-size: 200% 100%;
+    @apply animate-shimmer;
+  }
+
+  /* ── Stat box ── */
+  .stat-box {
+    @apply glass p-4 text-center rounded-xl;
+  }
+}
+
+/* ── Ticker animation ── */
+.ticker-wrap {
+  overflow: hidden;
+  white-space: nowrap;
+}
+.ticker-inner {
+  display: inline-flex;
+  animation: ticker 25s linear infinite;
+}
+.ticker-inner:hover {
+  animation-play-state: paused;
 }
