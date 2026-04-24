@@ -21,15 +21,9 @@ A fully decentralized prediction market platform built on **Stellar Soroban** sm
 
 ## Mobile Responsive Screenshot
 
-| Home — Market List |
-|---|
-| ![Stellar Prediction Market - mobile home screen with cricket market and YES/NO odds](screenshot/ss.PNG) |
-
----
-
-## CI/CD Pipeline Screenshot
-
-> Screenshot will appear here after pushing to GitHub and the Actions workflow runs green.
+| Home — Market List | Cricket Market & Bet UI |
+|---|---|
+| ![PredictStar mobile home screen showing markets and cricket odds](screenshot/mob1.PNG) | ![PredictStar mobile cricket market with India vs Pakistan betting](screenshot/mob2.PNG) |
 
 ---
 
