@@ -3,6 +3,7 @@ members = [
     "contracts/prediction_token",
     "contracts/market_factory",
     "contracts/prediction_market",
+    "contracts/oracle",
 ]
 resolver = "2"
 
